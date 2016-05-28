@@ -14,4 +14,7 @@ node {
   stage 'Package'
   sh 'mvn package'
   echo "test echo"
+
+  archive '**/target/*.jar'
+  step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
 }
