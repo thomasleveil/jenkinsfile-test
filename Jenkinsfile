@@ -6,13 +6,11 @@ node {
   
 
   stage 'Build'
-  sh 'mvn clean compile'
+  sh 'mvn clean testCompile'
 
   stage 'Test'
   sh 'mvn test'
 
-  stage 'Package'
-  sh 'mvn package'
   echo "test echo"
 
   archive '**/target/*.jar'
