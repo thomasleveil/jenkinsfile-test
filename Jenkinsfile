@@ -3,14 +3,11 @@ node {
   
   stage 'checkout'
   checkout scm
-  
-
-  stage 'Build'
-  sh 'mvn clean testCompile'
 
   stage 'Test'
-  sh 'mvn test'
+  sh 'mvn clean test'
 
+  stage 'echo'
   echo "test echo"
 
   archive '**/target/*.jar'
